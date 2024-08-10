@@ -1,11 +1,5 @@
-# base ninx
+# Use an official nginx image as a base
 FROM nginx:alpine
 
-# Copy downloaded site
-COPY ./hrcsite /usr/share/nginx/html
-
-# Expose Port 80
-EXPOSE 80
-
-# Start ngnix when the container starts
-CMD ["ngnix", "-g", "daemon off;"]
+# Copy the static HTML file to the nginx html directory
+COPY index.html /usr/share/nginx/html/index.html
