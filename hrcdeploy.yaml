@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrc-website-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hrc
+  template:
+    metadata:
+      labels:
+        app: hrc
+    spec:
+      containers:
+      - name: hrc
+        image: bruceejacobs/hrc:latest
+        ports:
+        - containerPort: 80
